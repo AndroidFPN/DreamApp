@@ -1,9 +1,6 @@
 package com.androidfpn.dreamapp.data.locale.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.androidfpn.dreamapp.data.locale.Model.SuggestedSoundInfo
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 
@@ -13,7 +10,7 @@ interface SoundDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSound(sound: Sound)
 
-    @Query("DELETE FROM sound")
+    @Delete
     suspend fun deleteSound(sound: Sound)
 
     @Query(
