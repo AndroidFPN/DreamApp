@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DreamApp</string>
+    <string name="home_title">home</string>
+    <string name="favorite_title">favorite</string>
+    <string name="category_title">category</string>
+    <string name="profile_title">profile</string>
 </resources>

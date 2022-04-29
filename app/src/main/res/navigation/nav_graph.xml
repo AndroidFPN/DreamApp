@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.androidfpn.dreamapp.screen.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favorite_fragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profile_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="com.androidfpn.dreamapp.screen.favorite.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/action_favorite_fragment_to_play_fragment"
+            app:destination="@id/play_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/category_fragment"
+        android:name="com.androidfpn.dreamapp.screen.category.CategoryFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_category_fragment_to_play_fragment"
+            app:destination="@id/play_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="com.androidfpn.dreamapp.screen.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/play_fragment"
+        android:name="com.androidfpn.dreamapp.screen.play.PlayFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/play_fragment" />
+</navigation>
