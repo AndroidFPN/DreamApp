@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
         android:layout_marginTop="200dp"
+
         android:text="Here is Home!" />
 
 </FrameLayout>
