@@ -2,9 +2,28 @@ package com.androidfpn.dreamapp.data.locale.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "sound")
+@Entity(
+    tableName = "sound",
+    foreignKeys = [ForeignKey(
+        entity = SuggestCategories::class,
+        parentColumns = ["id"],
+        childColumns = ["suggestCategoryFK"]
+    ),
+        ForeignKey(
+            entity = SoundCategories::class,
+            parentColumns = ["id"],
+            childColumns = ["categoryFK"]
+        ),
+        ForeignKey(
+            entity = SoundsDeclaimers::class,
+            parentColumns = ["id"],
+            childColumns = ["declaimerFK"]
+        )]
+)
+
 class Sound(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "title") val title: String,
