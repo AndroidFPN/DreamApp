@@ -4,12 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Music")
+@Entity(tableName = "sound")
 class Sound(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "categoryFK") val categoryFK: Int,
     @ColumnInfo(name = "declaimerFK") val declaimerFK: Int,
+    @ColumnInfo(name = "suggestCategoryFK") val suggestCategoryFK: Int,
     @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "source") val source: String,
     @ColumnInfo(name = "fileName") val fileName: String,
