@@ -2,6 +2,7 @@ package com.androidfpn.dreamapp.data.locale.dao
 
 import androidx.room.*
 import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SoundCategoriesDao {
@@ -13,5 +14,5 @@ interface SoundCategoriesDao {
     suspend fun deleteSoundCategory(soundCategory: SoundCategories)
 
     @Query("SELECT * FROM sound_categories ")
-    suspend fun getSoundCategories(): List<SoundCategories>
+    suspend fun getSoundCategories(): Flow<List<SoundCategories>>
 }
