@@ -21,16 +21,28 @@
         android:id="@+id/favorite_fragment"
         android:name="com.androidfpn.dreamapp.screen.favorite.FavoriteFragment"
         android:label="favorite_fragment"
-        tools:layout="@layout/favorite_fragment" />
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/action_favorite_fragment_to_play_fragment"
+            app:destination="@id/play_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/category_fragment"
-        android:name="com.androidfpn.dreamapp.screen.profile.ProfileFragment"
+        android:name="com.androidfpn.dreamapp.screen.category.CategoryFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_category_fragment_to_play_fragment"
+            app:destination="@id/play_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/profile_fragment"
         android:name="com.androidfpn.dreamapp.screen.profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
-
+    <fragment
+        android:id="@+id/play_fragment"
+        android:name="com.androidfpn.dreamapp.screen.play.PlayFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/play_fragment" />
 </navigation>
