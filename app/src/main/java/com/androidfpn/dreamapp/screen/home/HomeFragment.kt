@@ -1,14 +1,13 @@
 package com.androidfpn.dreamapp.screen.home
 
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
 import com.google.android.material.chip.Chip
@@ -30,41 +29,32 @@ class HomeFragment : Fragment() {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
         val view = binding?.root
 
-        setupChipsGroup()
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        viewModel.chipsData.observe(viewLifecycleOwner) { items ->
+            items.forEach {
+                    chipsText->binding?.chipGroup?.addView(createTagChip(requireContext(), chipsText))
+            }
+        }
+
 
         return view
 
     }
 
-    private fun setupChipsGroup() {
-        val items = arrayOf("خواب آرام", "صبح انرژیک", "مدیتیشن", "بی استرس")
-        items.forEach {
-            tagName->
-            binding?.chipGroup?.addView(createTagChip(requireContext(),tagName))
-        }
 
-    }
-
-    private fun createTagChip(context: Context,chipName:String) : Chip{
+    private fun createTagChip(context: Context, chipName:String) : Chip {
         return Chip(context).apply {
             text = chipName
             setChipBackgroundColorResource(R.color.purple_200)
             isCloseIconVisible=false
-            setTextColor(ContextCompat.getColor(context,R.color.white))
             id = ViewCompat.generateViewId()
+            setTextAppearance(R.style.chipText)
 
         }
 
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }
