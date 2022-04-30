@@ -4,4 +4,11 @@
     <string name="favorite_title">favorite</string>
     <string name="category_title">category</string>
     <string name="profile_title">profile</string>
+
+    //chip list
+    <string name="chip_sleep">خواب آرام</string>
+    <string name="chip_morning">صبح پرانرژِی</string>
+    <string name="chip_meditation">مدیتیشن</string>
+    <string name="chip_stress">بی استرس</string>
+
 </resources>
