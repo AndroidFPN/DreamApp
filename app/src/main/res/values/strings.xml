@@ -11,4 +11,10 @@
     <string name="chip_meditation">مدیتیشن</string>
     <string name="chip_stress">بی استرس</string>
 
+    //app bar menu
+
+    <string name="search_title">search</string>
+    <string name="content_description_favorite">favorite icon</string>
+    <string name="content_description_search">searc icon</string>
+
 </resources>
