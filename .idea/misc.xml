@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/category_icon.xml" value="0.191" />
+        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/custom_bordered_ripple.xml" value="0.162" />
+        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/custom_ripple.xml" value="0.138" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/favorite_icon.xml" value="0.191" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/headphone_icon.xml" value="0.1895" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/home_icon.xml" value="0.1745" />
@@ -12,13 +14,15 @@
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/play_ic_fill.xml" value="0.159" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/profile_icon.xml" value="0.191" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/search_icon.xml" value="0.1895" />
+        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/drawable/state_pressed_ripple.xml" value="0.162" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/font/font_family.xml" value="0.23020833333333332" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/font/yekan_bakh.xml" value="0.234375" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/activity_main.xml" value="0.19655797101449277" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/category_fragment.xml" value="0.19655797101449277" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/favorite_fragment.xml" value="0.415327564894932" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/home_fragment.xml" value="0.15" />
-        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/home_music_banner.xml" value="0.1983695652173913" />
+        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/home_music_banner.xml" value="0.33" />
+        <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/home_recycler_layout.xml" value="0.18333333333333332" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/layout/profile_fragment.xml" value="0.19655797101449277" />
         <entry key="..\:/Fereshteh/Project/DreamApp/app/src/main/res/menu/navigation_menu.xml" value="0.2" />
       </map>

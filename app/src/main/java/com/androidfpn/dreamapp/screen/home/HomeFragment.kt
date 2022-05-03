@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
     private fun createTagChip(context: Context, chipName:String) : Chip {
         return Chip(context).apply {
             text = chipName
-            setChipBackgroundColorResource(R.color.purple_200)
+            setChipBackgroundColorResource(R.color.indigo_500)
             isCloseIconVisible=false
             id = ViewCompat.generateViewId()
             setTextAppearance(R.style.chipText)

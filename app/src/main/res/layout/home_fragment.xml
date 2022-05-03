@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    android:background="@color/indigo_900"
     tools:context=".screen.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,28 +16,28 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
+            style="@style/AppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/app_name"
             app:menu="@menu/top_app_bar"
             app:navigationIcon="@drawable/moon_ic"
-            style="@style/AppBar" />
+            app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/textView2"
+    <include
+        android:id="@+id/music_banner_layout"
+        layout="@layout/home_music_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Here is Home!"
-        app:layout_constraintTop_toBottomOf="@+id/appBarHome"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
-        android:textColor="@color/black"
-         />
+        android:layout_margin="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarHome" />
+
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
@@ -45,10 +45,16 @@
         android:layoutDirection="rtl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/music_banner_layout" />
 
-    </com.google.android.material.chip.ChipGroup>
 
+    <!--   Todo : Design Below list-->
+    <include
+        android:id="@+id/home_recycler"
+        layout="@layout/home_recycler_layout"
+        app:layout_constraintTop_toBottomOf="@id/chipGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
