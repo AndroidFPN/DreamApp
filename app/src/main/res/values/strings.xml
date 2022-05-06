@@ -12,9 +12,12 @@
     <string name="chip_stress">بی استرس</string>
 
     //app bar menu
-
     <string name="search_title">search</string>
     <string name="content_description_favorite">favorite icon</string>
     <string name="content_description_search">searc icon</string>
+
+    //home
+    <string name="best_text">بهترین ها</string>
+    <string name="view_all_text">مشاهده همه</string>
 
 </resources>
