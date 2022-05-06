@@ -11,7 +11,9 @@ import androidx.core.view.ViewCompat
 import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     companion object {
