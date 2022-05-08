@@ -22,6 +22,8 @@ public abstract class AppDatabase : RoomDatabase() {
     abstract fun soundCategoriesDao(): SoundCategoriesDao
 
     companion object {
+        private const val DATABASE_DIR = "database/DreamDb" // Asset/database/you_name.db
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -33,7 +35,8 @@ public abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "DreamDb"
-                ).build()
+                ).createFromAsset(DATABASE_DIR)
+                    .build()
                 INSTANCE = instance
                 // return instance
                 instance
