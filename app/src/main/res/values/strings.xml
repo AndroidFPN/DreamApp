@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">DreamApp</string>
+    <string name="app_name">رویای شیرین</string>
+    <string name="home_title">home</string>
+    <string name="favorite_title">favorite</string>
+    <string name="category_title">category</string>
+    <string name="profile_title">profile</string>
+
+    //chip list
+    <string name="chip_sleep">خواب آرام</string>
+    <string name="chip_morning">صبح پرانرژِی</string>
+    <string name="chip_meditation">مدیتیشن</string>
+    <string name="chip_stress">بی استرس</string>
+
+    //app bar menu
+    <string name="search_title">search</string>
+    <string name="content_description_favorite">favorite icon</string>
+    <string name="content_description_search">searc icon</string>
+
+    //home
+    <string name="best_text">بهترین ها</string>
+    <string name="view_all_text">مشاهده همه</string>
+
 </resources>

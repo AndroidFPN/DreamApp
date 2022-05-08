@@ -8,3 +8,5 @@ The following technologies have been used in this application:
 - Hilt
 - Navigation Component
 - Room
+- Material Design
+
