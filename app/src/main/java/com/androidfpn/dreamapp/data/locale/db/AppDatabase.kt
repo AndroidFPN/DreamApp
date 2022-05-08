@@ -8,12 +8,11 @@ import com.androidfpn.dreamapp.data.locale.dao.SoundCategoriesDao
 import com.androidfpn.dreamapp.data.locale.dao.SoundDao
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
-import com.androidfpn.dreamapp.data.locale.entity.SoundsDeclaimers
 import com.androidfpn.dreamapp.data.locale.entity.SuggestCategories
 
 
 @Database(
-    entities = [Sound::class, SoundCategories::class, SoundsDeclaimers::class, SuggestCategories::class],
+    entities = [Sound::class, SoundCategories::class, SuggestCategories::class],
     version = 1,
     exportSchema = false
 )
@@ -33,7 +32,7 @@ public abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "app_database"
+                    "DreamDb"
                 ).build()
                 INSTANCE = instance
                 // return instance
