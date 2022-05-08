@@ -14,5 +14,5 @@ interface SoundCategoriesDao {
     suspend fun deleteSoundCategory(soundCategory: SoundCategories)
 
     @Query("SELECT * FROM sound_categories ")
-    suspend fun getSoundCategories(): Flow<List<SoundCategories>>
+     fun getSoundCategories(): Flow<List<SoundCategories>>
 }

@@ -1,25 +1,26 @@
 package com.androidfpn.dreamapp.screen.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.androidfpn.dreamapp.data.SoundRepository
+import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: SoundRepository) : ViewModel() {
 
 
-    private val _chipsData = MutableLiveData<List<String>>()
-    val chipsData: LiveData<List<String>>
-        get() = _chipsData
+    val chipsData : LiveData<List<SoundCategories>> = repository.categories.asLiveData()
 
     init {
-        populateChipsData()
     }
 
-
-    private fun populateChipsData() {
-        // TODO: get list from repo
-        val items = arrayOf("خواب آرام", "صبح انرژیک", "مدیتیشن", "بی استرس")
-        _chipsData.value = items.asList()
+    class HomeViewModelFactory(private val repository: SoundRepository)
+        : ViewModelProvider.Factory{
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
+                @Suppress("UNCHECKED_CAST")
+                return HomeViewModel(repository) as T
+            }
+            throw IllegalArgumentException("Unknown VieModel Class")
+        }
 
     }
 }
