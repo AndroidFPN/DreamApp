@@ -12,8 +12,7 @@ class HomeViewModel(private val repository: SoundRepository) : ViewModel() {
     init {
     }
 
-    class HomeViewModelFactory(private val repository: SoundRepository)
-        : ViewModelProvider.Factory{
+    class HomeViewModelFactory(private val repository: SoundRepository) : ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
                 @Suppress("UNCHECKED_CAST")

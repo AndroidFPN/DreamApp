@@ -18,10 +18,10 @@ import androidx.room.PrimaryKey
 class Sound(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "categoryFK") val categoryFK: Int,
     @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "source") val source: String,
     @ColumnInfo(name = "fileName") val fileName: String,
-    @ColumnInfo(name = "LastMinutePlayed") val LastMinutePlayed: Long,
-    @ColumnInfo(name = "isBookMarked") val isBookMarked: Boolean,
+    @ColumnInfo(name = "LastMinutePlayed") val LastMinutePlayed: Int,
+    @ColumnInfo(name = "isFavorite") val isBookMarked: Int,
+    @ColumnInfo(name = "categoryFK") val categoryFK: Int,
 )

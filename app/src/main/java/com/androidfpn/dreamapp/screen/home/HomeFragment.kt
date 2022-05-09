@@ -24,13 +24,10 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding
 
     private val viewModel: HomeViewModel by viewModels {
-        HomeViewModel.HomeViewModelFactory((application as MyApplication).repository)
+        HomeViewModel.HomeViewModelFactory((requireActivity().application as MyApplication).soundRepository)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
         val view = binding?.root
 
