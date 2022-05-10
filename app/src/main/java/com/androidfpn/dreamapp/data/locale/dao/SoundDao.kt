@@ -13,17 +13,4 @@ interface SoundDao {
 
     @Delete
     suspend fun deleteSound(sound: Sound)
-
- /*   @Query(
-        "SELECT " +
-                "suggest_categories.id AS suggestCategoryId " +
-                "suggest_categories.name AS suggestCategoryName" +
-                "sound.id AS soundId" +
-                "sound.title AS soundTitle" +
-                "sound.image AS soundImage" +
-                "FROM suggest_categories " +
-                "JOIN sound ON sound.suggestCategoryFK= suggest_categories.id " +
-                "ORDER BY suggest_categories.id ASC"
-    )
-    suspend fun getSuggestedSoundsInfo(): Flow<List<SuggestedSoundInfo>>*/
 }

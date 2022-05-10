@@ -6,13 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.androidfpn.dreamapp.data.locale.dao.SoundCategoriesDao
 import com.androidfpn.dreamapp.data.locale.dao.SoundDao
+import com.androidfpn.dreamapp.data.locale.entity.Artist
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
-import com.androidfpn.dreamapp.data.locale.entity.SuggestCategories
 
 
 @Database(
-    entities = [Sound::class, SoundCategories::class, SuggestCategories::class],
+    entities = [Sound::class, SoundCategories::class, Artist::class],
     version = 1,
     exportSchema = false
 )
@@ -22,7 +22,7 @@ public abstract class AppDatabase : RoomDatabase() {
     abstract fun soundCategoriesDao(): SoundCategoriesDao
 
     companion object {
-        private const val DATABASE_DIR = "database/DreamDb.db" // Asset/database/you_name.db
+        private const val DATABASE_DIR = "database/DreamSounds.db" // Asset/database/you_name.db
 
         @Volatile
         private var INSTANCE: AppDatabase? = null
@@ -34,7 +34,7 @@ public abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "DreamDb"
+                    "DreamSounds"
                 ).createFromAsset(DATABASE_DIR)
                     .build()
                 INSTANCE = instance
