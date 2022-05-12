@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.activity_main_bottom_navigation_view).setupWithNavController(
             navController
         )
+
     }
 
     override fun onSupportNavigateUp() =
