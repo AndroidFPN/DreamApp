@@ -1,4 +1,4 @@
-package com.androidfpn.dreamapp.data
+package com.androidfpn.dreamapp.di
 
 import android.content.Context
 import androidx.room.Room
