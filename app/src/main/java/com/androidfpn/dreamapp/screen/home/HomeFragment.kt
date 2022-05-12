@@ -9,12 +9,10 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.androidfpn.dreamapp.MyApplication
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.androidfpn.dreamapp.R
 import com.google.android.material.chip.Chip
-import kotlinx.android.synthetic.main.home_fragment.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.home_fragment.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
