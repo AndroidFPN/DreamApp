@@ -34,6 +34,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:id="@+id/recycler"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:listitem="@layout/row_recycler"
