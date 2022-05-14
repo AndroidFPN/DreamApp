@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidfpn.dreamapp.MyApplication
 import com.androidfpn.dreamapp.R
@@ -33,15 +34,13 @@ class HomeFragment : Fragment() {
     }
 
     private val viewModel: HomeViewModel by viewModels {
-        HomeViewModel.HomeViewModelFactory(
-            (requireActivity().application as MyApplication),
+        HomeViewModelFactory(
             (requireActivity().application as MyApplication).soundRepository
         )
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
@@ -50,19 +49,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView: RecyclerView = binding?.homeRecycler?.recycler!!
-        val homeAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
 
-        recyclerView.adapter = homeAdapter
+        setupBestList()
+
+
         viewModel.chipsData.observe(viewLifecycleOwner) { items ->
             items.forEach { chipsText ->
                 binding?.chipGroup?.addView(createTagChip(requireContext(), chipsText.name))
             }
         }
+    }
 
-        viewModel.bestSoundsList.observe(viewLifecycleOwner) { items ->
-            items.forEach { sounds ->
-                homeAdapter.submitList(sounds as MutableList<Sound>)
+    private fun setupBestList() {
+
+        val homeAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
+
+        val recyclerView: RecyclerView = binding?.homeRecycler?.recycler!!
+
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = homeAdapter
+
+        viewModel.bestSoundsList.observe(viewLifecycleOwner) {
+            it?.let {
+                homeAdapter.submitList(it as MutableList<Sound>)
             }
         }
     }
@@ -83,7 +93,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 
 
 }

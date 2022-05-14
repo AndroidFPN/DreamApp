@@ -15,4 +15,8 @@ class SoundRepository @Inject constructor(private val soundCategoriesDao: SoundC
         return soundDoa.getSoundListFilteredWithId(soundsId)
     }
 
+    fun getBestCategory():List<Int>{
+        return BestCategory.bestCategoryList
+    }
+
 }

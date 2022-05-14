@@ -38,6 +38,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:listitem="@layout/row_recycler"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginBottom="@dimen/_24sdp"
         android:scrollbars="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/viewAllTv" />
 </androidx.constraintlayout.widget.ConstraintLayout>
