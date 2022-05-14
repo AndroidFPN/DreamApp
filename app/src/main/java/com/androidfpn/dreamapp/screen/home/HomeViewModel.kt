@@ -1,38 +1,38 @@
 package com.androidfpn.dreamapp.screen.home
 
-import android.app.Application
-import androidx.lifecycle.*
-import com.androidfpn.dreamapp.MyApplication
-import com.androidfpn.dreamapp.R
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import com.androidfpn.dreamapp.data.SoundRepository
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 
-class HomeViewModel(application: Application, private val repository: SoundRepository) : AndroidViewModel(application) {
+class HomeViewModel(private val repository: SoundRepository) : ViewModel() {
+
+    private val bestSounds = mutableListOf(1, 3, 5)
+    private val suggestedSounds = mutableListOf(2, 4)
 
     val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     lateinit var bestSoundsList: LiveData<List<Sound>>
+    lateinit var suggestedSoundsList: LiveData<List<Sound>>
 
     init {
-        initBestSounds()
+        initSounds()
     }
 
-    private fun initBestSounds() {
-        bestSoundsList =
-            repository.fetchSoundListFilteredWithId((getApplication<Application>().applicationContext.resources.getIntArray(R.array.best_sounds)).toList())
-                .asLiveData()
+    private fun initSounds() {
+        bestSoundsList = repository.fetchSoundListFilteredWithId(bestSounds).asLiveData()
+        suggestedSoundsList = repository.fetchSoundListFilteredWithId(suggestedSounds).asLiveData()
     }
 
-    class HomeViewModelFactory(val application1: Application, private val repository: SoundRepository) : ViewModelProvider.AndroidViewModelFactory() {
+    class HomeViewModelFactory(private val repository: SoundRepository) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return HomeViewModel(application = application1, repository) as T
+                return HomeViewModel(repository) as T
             }
             throw IllegalArgumentException("Unknown VieModel Class")
         }
-
     }
 }

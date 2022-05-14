@@ -22,41 +22,47 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private var _binding: HomeFragmentBinding? = null
+    private lateinit var bestSoundAdapter: HomeAdapter
+    private lateinit var newSoundAdapter: HomeAdapter
+    private lateinit var _binding: HomeFragmentBinding
     private val binding get() = _binding
-
 
     private fun adapterOnClick(sound: Sound) {
         TODO("Not yet implemented")
     }
 
     private val viewModel: HomeViewModel by viewModels {
-        HomeViewModel.HomeViewModelFactory(
-            (requireActivity().application as MyApplication),
-            (requireActivity().application as MyApplication).soundRepository
-        )
+        HomeViewModel.HomeViewModelFactory((requireActivity().application as MyApplication).soundRepository)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
-        return binding?.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView: RecyclerView = binding?.homeRecycler?.recycler!!
-        val homeAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
+        initializeAdapters()
+        initializeCategories()
+        initializeBestSounds()
+        initializeSuggestedSounds()
+    }
 
-        recyclerView.adapter = homeAdapter
+    private fun initializeAdapters() {
+        val bestSoundRecyclerView: RecyclerView = binding.bestSoundsInclude.recycler
+        binding.bestSoundsInclude.bestTv.text = getString(R.string.best_text)
+        val newSoundRecyclerView: RecyclerView = binding.suggestedSoundInclude.recycler
+        binding.suggestedSoundInclude.bestTv.text = getString(R.string.news_text)
+        bestSoundAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
+        newSoundAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
+        bestSoundRecyclerView.adapter = bestSoundAdapter
+        newSoundRecyclerView.adapter = newSoundAdapter
+    }
+
+    private fun initializeCategories() {
         viewModel.chipsData.observe(viewLifecycleOwner) { items ->
             items.forEach { chipsText ->
-                binding?.chipGroup?.addView(createTagChip(requireContext(), chipsText.name))
-            }
-        }
-
-        viewModel.bestSoundsList.observe(viewLifecycleOwner) { items ->
-            items.forEach { sounds ->
-                homeAdapter.submitList(sounds as MutableList<Sound>)
+                binding.chipGroup.addView(createTagChip(requireContext(), chipsText.name))
             }
         }
     }
@@ -70,8 +76,17 @@ class HomeFragment : Fragment() {
             setTextAppearance(R.style.chipText)
 
         }
-
     }
 
+    private fun initializeBestSounds() {
+        viewModel.bestSoundsList.observe(viewLifecycleOwner) { sounds ->
+            bestSoundAdapter.submitList(sounds)
+        }
+    }
 
+    private fun initializeSuggestedSounds() {
+        viewModel.suggestedSoundsList.observe(viewLifecycleOwner) { sounds ->
+            newSoundAdapter.submitList(sounds)
+        }
+    }
 }

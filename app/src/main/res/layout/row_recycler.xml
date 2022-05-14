@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_marginHorizontal="@dimen/_16sdp"
+    android:layout_height="wrap_content">
+
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        android:src="@drawable/flute_cover1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/titleTextView"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:id="@+id/ivSound"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="9:16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:text="صدای فلوت"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[7]" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.circle"
+        tools:srcCompat="@drawable/ic_heart" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSoundName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/yekan_bakh_medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFavorite"
+        tools:text="صدای فلوت" />
 </androidx.constraintlayout.widget.ConstraintLayout>

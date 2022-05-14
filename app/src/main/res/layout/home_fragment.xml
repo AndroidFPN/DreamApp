@@ -50,7 +50,7 @@
 
     <!--   Todo : Design Below list-->
     <include
-        android:id="@+id/home_recycler"
+        android:id="@+id/best_sounds_include"
         layout="@layout/home_recycler_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
@@ -59,4 +59,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <include
+        android:id="@+id/suggested_sound_include"
+        layout="@layout/home_recycler_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintTop_toBottomOf="@id/best_sounds_include" />
 </androidx.constraintlayout.widget.ConstraintLayout>

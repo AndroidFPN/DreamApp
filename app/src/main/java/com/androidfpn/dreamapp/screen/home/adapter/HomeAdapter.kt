@@ -28,8 +28,8 @@ class HomeAdapter(private val onClick: (Sound) -> Unit) : ListAdapter<Sound, Hom
             context?.let { context ->
                 imageId = context.resources.getIdentifier(getItem(position).image, "drawable", context.packageName)
             }
-            it.binding.imageView.setImageResource(imageId)
-            it.binding.textView.text = getItem(position).title
+            it.binding.ivSound.setImageResource(imageId)
+            it.binding.tvSoundName.text = getItem(position).title
         }
     }
 
