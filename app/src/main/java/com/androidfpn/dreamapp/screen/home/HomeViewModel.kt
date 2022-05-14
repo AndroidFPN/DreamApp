@@ -4,14 +4,23 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.androidfpn.dreamapp.MyApplication
 import com.androidfpn.dreamapp.R
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import com.androidfpn.dreamapp.data.SoundRepository
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val repository: SoundRepository) : ViewModel() {
 class HomeViewModel(application: Application, private val repository: SoundRepository) : AndroidViewModel(application) {
 
+    val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     lateinit var bestSoundsList: LiveData<List<Sound>>
 
@@ -25,6 +34,8 @@ class HomeViewModel(application: Application, private val repository: SoundRepos
                 .asLiveData()
     }
 
+    class HomeViewModelFactory(private val repository: SoundRepository) :
+        ViewModelProvider.Factory {
     class HomeViewModelFactory(val application1: Application, private val repository: SoundRepository) : ViewModelProvider.AndroidViewModelFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
