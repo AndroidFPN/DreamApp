@@ -15,7 +15,9 @@ import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
 import com.androidfpn.dreamapp.screen.home.adapter.HomeAdapter
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     companion object {
@@ -89,4 +91,10 @@ class HomeFragment : Fragment() {
             newSoundAdapter.submitList(sounds)
         }
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
 }
