@@ -16,7 +16,6 @@ import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
 import com.androidfpn.dreamapp.screen.home.adapter.HomeAdapter
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.home_fragment.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -40,7 +39,11 @@ class HomeFragment : Fragment() {
         )
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -75,6 +78,12 @@ class HomeFragment : Fragment() {
         }
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 
 
 }

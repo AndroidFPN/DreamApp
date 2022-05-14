@@ -3,6 +3,7 @@ package com.androidfpn.dreamapp.di
 import android.content.Context
 import androidx.room.Room
 import com.androidfpn.dreamapp.data.locale.dao.SoundCategoriesDao
+import com.androidfpn.dreamapp.data.locale.dao.SoundDao
 import com.androidfpn.dreamapp.data.locale.db.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -18,6 +19,11 @@ class DatabaseModule {
     @Provides
     fun provideSoundCategoriesDao(appDatabase: AppDatabase): SoundCategoriesDao {
         return appDatabase.soundCategoriesDao()
+    }
+
+    @Provides
+    fun provideSoundDao(appDatabase: AppDatabase):SoundDao{
+        return appDatabase.soundDao()
     }
 
     @Provides

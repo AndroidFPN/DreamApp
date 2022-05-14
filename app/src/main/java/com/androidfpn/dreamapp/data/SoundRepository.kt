@@ -7,8 +7,7 @@ import com.androidfpn.dreamapp.data.locale.entity.SoundCategories
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class SoundRepository @Inject constructor(private val soundCategoriesDao: SoundCategoriesDao){
-class SoundRepository(private val soundCategoriesDao: SoundCategoriesDao, private val soundDoa: SoundDao) {
+class SoundRepository @Inject constructor(private val soundCategoriesDao: SoundCategoriesDao, private val soundDoa: SoundDao){
 
     val categories: Flow<List<SoundCategories>> = soundCategoriesDao.getSoundCategories()
 

@@ -17,10 +17,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: SoundRepository) : ViewModel() {
-class HomeViewModel(application: Application, private val repository: SoundRepository) : AndroidViewModel(application) {
+class HomeViewModel @Inject constructor(application: Application,private val repository: SoundRepository)
+    : AndroidViewModel(application) {
 
-    val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     lateinit var bestSoundsList: LiveData<List<Sound>>
 
@@ -34,9 +33,9 @@ class HomeViewModel(application: Application, private val repository: SoundRepos
                 .asLiveData()
     }
 
-    class HomeViewModelFactory(private val repository: SoundRepository) :
-        ViewModelProvider.Factory {
-    class HomeViewModelFactory(val application1: Application, private val repository: SoundRepository) : ViewModelProvider.AndroidViewModelFactory() {
+
+    class HomeViewModelFactory(val application1: Application, private val repository: SoundRepository)
+        : ViewModelProvider.AndroidViewModelFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
