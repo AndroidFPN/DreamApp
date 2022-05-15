@@ -8,13 +8,6 @@
             <solid android:color="#000000" />
         </shape>
     </item>
-
-    <item >
-        <shape android:shape="oval">
-            <solid android:color="@color/white" />
-        </shape>
-    </item>
-
     <item
         android:drawable="@drawable/ic_play"
         android:bottom="@dimen/_10sdp"
