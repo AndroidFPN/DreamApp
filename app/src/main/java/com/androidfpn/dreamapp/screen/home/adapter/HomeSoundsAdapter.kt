@@ -11,41 +11,30 @@ import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.databinding.RowRecyclerBinding
 
-class HomeAdapter(private val onClick: (Sound) -> Unit) : ListAdapter<Sound, HomeAdapter.HomeViewHolder>(HomeDiffCallback) {
+class HomeSoundsAdapter(private val onClick: (Sound) -> Unit) : ListAdapter<Sound, HomeSoundsAdapter.HomeViewHolder>(HomeDiffCallback) {
 
-    private var context: Context? = null
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.row_recycler, parent, false)
-        context = parent.context;
-        return HomeViewHolder(view, onClick)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_recycler, parent, false)
+        context = parent.context
+        return HomeViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.let {
-            var imageId = 0
-            context?.let { context ->
-                imageId = context.resources.getIdentifier(getItem(position).image, "drawable", context.packageName)
+        holder.binding.let { binding ->
+            val currentSound = getItem(position)
+            val imageId = context.resources.getIdentifier(currentSound.image, "drawable", context.packageName)
+            binding.ivSound.setImageResource(imageId)
+            binding.tvSoundName.text = currentSound.title
+            binding.root.setOnClickListener {
+                onClick(currentSound)
             }
-            it.binding.ivSound.setImageResource(imageId)
-            it.binding.tvSoundName.text = getItem(position).title
         }
     }
 
-    class HomeViewHolder(view: View, val onClick: (Sound) -> Unit) :
-        RecyclerView.ViewHolder(view) {
-
+    class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = RowRecyclerBinding.bind(view)
-        private var currentSound: Sound? = null
-
-        init {
-            itemView.setOnClickListener {
-                currentSound?.let {
-                    onClick(it)
-                }
-            }
-        }
     }
 
     object HomeDiffCallback : DiffUtil.ItemCallback<Sound>() {

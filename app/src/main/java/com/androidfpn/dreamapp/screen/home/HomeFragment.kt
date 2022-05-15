@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,7 +14,7 @@ import com.androidfpn.dreamapp.MyApplication
 import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
-import com.androidfpn.dreamapp.screen.home.adapter.HomeAdapter
+import com.androidfpn.dreamapp.screen.home.adapter.HomeSoundsAdapter
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,13 +25,13 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var bestSoundAdapter: HomeAdapter
-    private lateinit var newSoundAdapter: HomeAdapter
+    private lateinit var bestSoundAdapter: HomeSoundsAdapter
+    private lateinit var newSoundAdapter: HomeSoundsAdapter
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding
 
     private fun adapterOnClick(sound: Sound) {
-        TODO("Not yet implemented")
+        Toast.makeText(requireContext(), "Show", Toast.LENGTH_SHORT).show()
     }
 
     private val viewModel: HomeViewModel by viewModels {
@@ -56,8 +57,8 @@ class HomeFragment : Fragment() {
             binding.bestSoundsInclude.bestTv.text = getString(R.string.best_text)
             val newSoundRecyclerView: RecyclerView = binding.suggestedSoundInclude.recycler
             binding.suggestedSoundInclude.bestTv.text = getString(R.string.news_text)
-            bestSoundAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
-            newSoundAdapter = HomeAdapter { sound -> adapterOnClick(sound) }
+            bestSoundAdapter = HomeSoundsAdapter { sound -> adapterOnClick(sound) }
+            newSoundAdapter = HomeSoundsAdapter { sound -> adapterOnClick(sound) }
             bestSoundRecyclerView.adapter = bestSoundAdapter
             newSoundRecyclerView.adapter = newSoundAdapter
         }
