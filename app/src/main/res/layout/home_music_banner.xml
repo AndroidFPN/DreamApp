@@ -29,14 +29,28 @@
             android:background="@drawable/image_shadow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/play_icon_rippled" />
+            android:layout_marginEnd="@dimen/_10sdp">
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/play_icon_rippled" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_centerInParent="true"
+                app:lottie_url="REPLACE_JSON_URL"
+                app:lottie_rawRes="@raw/play_loop"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+        </RelativeLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 
