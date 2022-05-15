@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/indigo_700">
 
     <com.google.android.material.textview.MaterialTextView
@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20sdp"
         android:fontFamily="@font/yekan_bakh_regular"
-        android:textColor="@color/white"
         android:text="@string/view_all_text"
+        android:textColor="@color/white"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,25 +22,27 @@
         android:id="@+id/bestTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/yekan_bakh_bold"
         android:layout_marginEnd="@dimen/_20sdp"
+        android:fontFamily="@font/yekan_bakh_bold"
         android:gravity="end"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:text="@string/best_text"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/viewAllTv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewAllTv"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAllTv"/>
+        app:layout_constraintTop_toTopOf="@+id/viewAllTv" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
         android:id="@+id/recycler"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_24sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:clipToPadding="true"
+        android:layoutDirection="rtl"
         android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_recycler"
-        android:layout_marginTop="@dimen/_24sdp"
-        android:layout_marginBottom="@dimen/_24sdp"
         android:scrollbars="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/viewAllTv" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/viewAllTv"
+        tools:listitem="@layout/row_recycler" />
 </androidx.constraintlayout.widget.ConstraintLayout>

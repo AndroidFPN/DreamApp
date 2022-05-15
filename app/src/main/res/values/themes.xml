@@ -35,7 +35,7 @@
     </style>
 
     <style name="ShapeAppearanceOverlay.App.CornerSize20Percent" parent="">
-        <item name="cornerSize">@dimen/_20sdp</item>
+        <item name="cornerSize">@dimen/_16sdp</item>
         <item name="cornerFamilyTopRight">rounded</item>
     </style>
     <style name="ShapeAppearanceOverlay.App.circle" parent="">

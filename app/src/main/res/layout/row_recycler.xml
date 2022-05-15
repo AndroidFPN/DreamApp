@@ -3,25 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_marginHorizontal="@dimen/_16sdp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+   android:layout_marginStart="@dimen/_8sdp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivSound"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_160sdp"
         android:scaleType="fitXY"
-        app:layout_constraintDimensionRatio="9:16"
+        android:src="@drawable/sound_image_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[7]" />
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/ivSound"
@@ -37,8 +36,8 @@
         android:layout_marginTop="@dimen/_16sdp"
         android:fontFamily="@font/yekan_bakh_medium"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivFavorite"
         tools:text="صدای فلوت" />
