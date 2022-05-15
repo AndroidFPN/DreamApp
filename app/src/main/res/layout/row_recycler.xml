@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.App.circle"
-        tools:srcCompat="@drawable/ic_heart" />
+        app:srcCompat="@drawable/ic_heart" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSoundName"
