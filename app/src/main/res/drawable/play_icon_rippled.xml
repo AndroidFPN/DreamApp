@@ -8,10 +8,8 @@
             <solid android:color="#000000" />
         </shape>
     </item>
-
-
     <item
-        android:drawable="@drawable/play_ic_fill"
+        android:drawable="@drawable/ic_play"
         android:bottom="@dimen/_10sdp"
         android:left="@dimen/_10sdp"
         android:right="@dimen/_10sdp"
