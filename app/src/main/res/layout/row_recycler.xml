@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-   android:layout_marginStart="@dimen/_8sdp">
+    android:layout_marginStart="@dimen/_8sdp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivSound"
@@ -17,17 +17,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivFavorite"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@color/white"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_heart_rippled"
         app:layout_constraintBottom_toBottomOf="@+id/ivSound"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.circle"
-        app:srcCompat="@drawable/ic_heart" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSoundName"
