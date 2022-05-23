@@ -46,6 +46,7 @@ android {
     }
 
     namespace 'com.androidfpn.dreamapp'
+    buildToolsVersion '32.0.0'
 }
 
 dependencies {
