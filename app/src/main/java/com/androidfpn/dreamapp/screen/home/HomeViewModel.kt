@@ -17,9 +17,10 @@ class HomeViewModel @Inject constructor(private val repository: SoundRepository)
     private val bestSounds = mutableListOf(1, 3, 5)
     private val suggestedSounds = mutableListOf(2, 4)
 
-    val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
+//    val chipsData: LiveData<List<SoundCategories>> = repository.categories.asLiveData()
     lateinit var bestSoundsList: LiveData<List<Sound>>
     lateinit var suggestedSoundsList: LiveData<List<Sound>>
+    lateinit var categoriesList: LiveData<List<SoundCategories>>
 
     init {
         initSounds()
@@ -28,6 +29,7 @@ class HomeViewModel @Inject constructor(private val repository: SoundRepository)
     private fun initSounds() {
         bestSoundsList = repository.fetchSoundListFilteredWithId(bestSounds).asLiveData()
         suggestedSoundsList = repository.fetchSoundListFilteredWithId(suggestedSounds).asLiveData()
+        categoriesList = repository.categories.asLiveData()
     }
 
     class HomeViewModelFactory(private val repository: SoundRepository) : ViewModelProvider.Factory {

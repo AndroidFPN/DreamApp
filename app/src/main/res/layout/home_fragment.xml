@@ -34,19 +34,19 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.3"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_image1"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintTop_toBottomOf="@+id/appBarHome"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.1"
             android:background="@drawable/shadow_deep_blue"
-            app:layout_constraintBottom_toBottomOf="@id/imageView" />
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintHeight_percent="0.1" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="@dimen/_60sdp"
@@ -80,28 +80,42 @@
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintTop_toBottomOf="@+id/appBarHome" />-->
 
-        <HorizontalScrollView
-            android:id="@+id/chipsScroll"
-            android:layout_width="wrap_content"
+        <!--        <HorizontalScrollView-->
+        <!--            android:id="@+id/chipsScroll"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layoutDirection="rtl"-->
+        <!--            android:scrollbars="none"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/imageView">-->
+
+        <!--            <com.google.android.material.chip.ChipGroup-->
+        <!--                android:id="@+id/chipGroup"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginStart="24dp"-->
+        <!--                android:layout_marginTop="20dp"-->
+        <!--                android:layout_marginEnd="24dp"-->
+        <!--                android:layoutDirection="rtl"-->
+        <!--                app:singleLine="true" />-->
+
+
+        <!--        </HorizontalScrollView>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRecycler"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="true"
             android:layoutDirection="rtl"
-            android:scrollbars="none"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_24sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="24dp"
-                android:layoutDirection="rtl"
-                app:singleLine="true" />
-
-
-        </HorizontalScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:listitem="@layout/home_category_item" />
 
         <include
             android:id="@+id/best_sounds_include"
@@ -111,7 +125,7 @@
             android:layout_marginTop="@dimen/_16sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chipsScroll" />
+            app:layout_constraintTop_toBottomOf="@id/categoryRecycler" />
 
         <include
             android:id="@+id/suggested_sound_include"
