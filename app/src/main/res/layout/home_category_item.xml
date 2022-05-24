@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_100sdp"
-    android:layout_height="@dimen/_100sdp"
-    android:layout_margin="@dimen/_8sdp"
-    android:background="@drawable/home_category_shape">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_8sdp"
+    android:background="@android:color/transparent"
+    app:cardBackgroundColor="@color/deep_purple500_30Transparency"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="0dp"
+    app:contentPaddingBottom="@dimen/_12sdp"
+    app:contentPaddingLeft="@dimen/_16sdp"
+    app:contentPaddingRight="@dimen/_16sdp"
+    app:contentPaddingTop="@dimen/_12sdp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/categoryIcon"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_16sdp"
-        tools:srcCompat="@drawable/category_icon"/>
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/categoryTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        style="@style/titleTextView"
-        app:layout_constraintStart_toStartOf="@+id/categoryIcon"
-        app:layout_constraintEnd_toEndOf="@+id/categoryIcon"
-        app:layout_constraintTop_toBottomOf="@+id/categoryIcon"
-        android:text="خواب آرام"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryIcon"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            app:srcCompat="@drawable/category_icon" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/yekan_bakh_medium"
+            android:text="خواب آرام"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
