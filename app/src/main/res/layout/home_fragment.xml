@@ -34,19 +34,19 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.3"
             android:layout_marginHorizontal="@dimen/_16sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_image1"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintTop_toBottomOf="@+id/appBarHome"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.1"
             android:background="@drawable/shadow_deep_blue"
-            app:layout_constraintBottom_toBottomOf="@id/imageView" />
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintHeight_percent="0.1" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="@dimen/_60sdp"
@@ -70,15 +70,33 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/play_button_anim"
             app:lottie_url="REPLACE_JSON_URL" />
-        <!--        <include-->
-        <!--            android:id="@+id/music_banner_layout"-->
-        <!--            layout="@layout/home_music_banner"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_margin="@dimen/_8sdp"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/appBarHome" />-->
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSoundName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yekan_bakh_bold"
+            android:textColor="@color/white"
+            android:text="سفر رویایی من"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toTopOf="@id/tvSoundArtist"
+            app:layout_constraintEnd_toStartOf="@id/animationView"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/animationView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSoundArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yekan_bakh_bold"
+            android:textColor="@color/white"
+            android:text="مهلا زیبارو"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/animationView"
+            app:layout_constraintEnd_toStartOf="@id/animationView"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvSoundName" />
 
         <HorizontalScrollView
             android:id="@+id/chipsScroll"
