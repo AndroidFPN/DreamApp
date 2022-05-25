@@ -32,17 +32,26 @@ class HomeCategoryAdapter(private val onClick: (SoundCategories) -> Unit) :
             val currentCategory = getItem(position)
             it.categoryTextView.text = currentCategory.name
             it.root.setOnClickListener {
-               onClick(currentCategory)
+                onClick(currentCategory)
             }
+            val imageId = context.resources.getIdentifier(
+                getItem(position).image,
+                "drawable",
+                context.packageName
+            )
+            it.categoryIcon.setImageResource(imageId)
         }
     }
 
     object CategoryDiffCallback : DiffUtil.ItemCallback<SoundCategories>() {
         override fun areItemsTheSame(oldItem: SoundCategories, newItem: SoundCategories): Boolean {
-           return oldItem == newItem
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: SoundCategories, newItem: SoundCategories): Boolean {
+        override fun areContentsTheSame(
+            oldItem: SoundCategories,
+            newItem: SoundCategories
+        ): Boolean {
             return oldItem.id == newItem.id
         }
 

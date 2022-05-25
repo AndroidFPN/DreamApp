@@ -9,4 +9,5 @@ import androidx.room.PrimaryKey
 class SoundCategories(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "image") val image: String
 )
