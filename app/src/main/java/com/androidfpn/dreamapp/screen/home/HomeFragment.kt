@@ -16,6 +16,7 @@ import com.androidfpn.dreamapp.databinding.HomeFragmentBinding
 import com.androidfpn.dreamapp.screen.home.adapter.HomeCategoryAdapter
 import com.androidfpn.dreamapp.screen.home.adapter.HomeSoundsAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -24,8 +25,12 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var bestSoundAdapter: HomeSoundsAdapter
-    private lateinit var newSoundAdapter: HomeSoundsAdapter
+    @Inject
+    lateinit var bestSoundAdapter: HomeSoundsAdapter
+
+    @Inject
+    lateinit var newSoundAdapter: HomeSoundsAdapter
+
     private lateinit var categoryAdapter: HomeCategoryAdapter
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding
@@ -66,8 +71,8 @@ class HomeFragment : Fragment() {
             val newSoundRecyclerView: RecyclerView = binding.suggestedSoundInclude.recycler
             binding.suggestedSoundInclude.bestTv.text = getString(R.string.news_text)
             val categoryRecyclerView: RecyclerView = binding.categoryRecycler
-            bestSoundAdapter = HomeSoundsAdapter { sound -> adapterOnClick(sound) }
-            newSoundAdapter = HomeSoundsAdapter { sound -> adapterOnClick(sound) }
+            bestSoundAdapter.setOnItemClickListener { sound -> adapterOnClick(sound) }
+            newSoundAdapter.setOnItemClickListener { sound -> adapterOnClick(sound) }
             categoryAdapter = HomeCategoryAdapter { categories -> categoryOnClick(categories) }
             bestSoundRecyclerView.adapter = bestSoundAdapter
             newSoundRecyclerView.adapter = newSoundAdapter

@@ -10,10 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.data.locale.entity.Sound
 import com.androidfpn.dreamapp.databinding.RowRecyclerBinding
+import javax.inject.Inject
 
-class HomeSoundsAdapter(private val onClick: (Sound) -> Unit) : ListAdapter<Sound, HomeSoundsAdapter.HomeViewHolder>(HomeDiffCallback) {
+class HomeSoundsAdapter @Inject constructor() :
+    ListAdapter<Sound, HomeSoundsAdapter.HomeViewHolder>(HomeDiffCallback) {
 
     private lateinit var context: Context
+
+    private var onItemClickListener: ((Sound) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Sound) -> Unit) {
+        onItemClickListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_recycler, parent, false)
@@ -24,11 +31,14 @@ class HomeSoundsAdapter(private val onClick: (Sound) -> Unit) : ListAdapter<Soun
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.binding.let { binding ->
             val currentSound = getItem(position)
-            val imageId = context.resources.getIdentifier(currentSound.image, "drawable", context.packageName)
+            val imageId =
+                context.resources.getIdentifier(currentSound.image, "drawable", context.packageName)
             binding.ivSound.setImageResource(imageId)
             binding.tvSoundName.text = currentSound.title
             binding.root.setOnClickListener {
-                onClick(currentSound)
+                onItemClickListener?.let {
+                    it(currentSound)
+                }
             }
         }
     }
