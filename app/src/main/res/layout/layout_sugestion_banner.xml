@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/suggestCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="0dp"
+    android:backgroundTint="@color/deep_purple500_40Transparency">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_16sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSuggestionBanner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.4"
+            app:srcCompat="@drawable/ic_heart" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yekan_bakh_bold"
+            android:text="الان استرس داری؟"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivSuggestionBanner"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yekan_bakh_regular"
+            android:text="الان استرس داری؟"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivSuggestionBanner"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlay"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/favorite_icon"
+            app:iconSize="@dimen/_8sdp"
+            android:text="همین الان گوش کن"
+            android:insetTop="0dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:insetBottom="0dp"
+            app:iconTint="@color/TealA100"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:textColor="@color/TealA100"
+            app:drawableTint="@color/TealA100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
