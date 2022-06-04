@@ -19,8 +19,7 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivFavorite"
-        android:layout_width="@dimen/_60sdp"
-        android:layout_height="@dimen/_60sdp"
+        style="@style/ImageView.Large"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_heart_rippled"
         app:layout_constraintBottom_toBottomOf="@+id/ivSound"
@@ -29,11 +28,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSoundName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_16sdp"
-        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivFavorite"
