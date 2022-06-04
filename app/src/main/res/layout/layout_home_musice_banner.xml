@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView"
@@ -50,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:text="سفر رویایی من"
+        tools:text="سفر رویایی من"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -61,13 +62,12 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSoundArtist"
-        style="@style/Light_TextStyle"
+        style="@style/TextView.Style.Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:text="مهلا زیبارو"
+        tools:text="مهلا زیبارو"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/animationView"
         app:layout_constraintEnd_toStartOf="@id/animationView"
         app:layout_constraintTop_toBottomOf="@id/tvSoundName" />

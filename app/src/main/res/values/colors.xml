@@ -270,7 +270,5 @@
      <color name="Shadow2">#ffc8bbfd</color>
      <color name="Shadow1">#ffded6fe</color>
      <color name="Shadow0">#fff4f2ff</color>
-
-
-
+    <color name="gray">#0D879ABF</color>
 </resources>

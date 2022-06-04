@@ -4,7 +4,6 @@
     android:id="@+id/suggestCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="0dp"
     android:backgroundTint="@color/deep_purple500_40Transparency">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,8 +27,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="الان استرس داری؟"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivSuggestionBanner"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,10 +37,8 @@
             android:id="@+id/tvDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-           android:textStyle="bold"
             android:text="الان استرس داری؟"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivSuggestionBanner"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
