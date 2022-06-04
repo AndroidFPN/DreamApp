@@ -49,11 +49,11 @@
         android:id="@+id/tvSoundName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/yekan_bakh_medium"
         android:maxLines="1"
         android:text="سفر رویایی من"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/tvSoundArtist"
         app:layout_constraintEnd_toStartOf="@id/animationView"
         app:layout_constraintTop_toTopOf="@id/animationView"
@@ -61,9 +61,9 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSoundArtist"
+        style="@style/Light_TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/yekan_bakh_light"
         android:maxLines="1"
         android:text="مهلا زیبارو"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
