@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profile_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_play_fragment"
+            app:destination="@id/play_fragment" />
     </fragment>
     <fragment
         android:id="@+id/favorite_fragment"

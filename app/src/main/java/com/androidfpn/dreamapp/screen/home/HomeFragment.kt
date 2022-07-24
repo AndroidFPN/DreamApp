@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.androidfpn.dreamapp.MyApplication
 import com.androidfpn.dreamapp.R
@@ -36,10 +37,12 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding
 
     private fun adapterOnClick(sound: Sound) {
+        findNavController().navigate(R.id.action_home_fragment_to_play_fragment)
         Toast.makeText(requireContext(), "Show", Toast.LENGTH_SHORT).show()
     }
 
     private fun categoryOnClick(category: SoundCategories) {
+        findNavController().navigate(R.id.action_home_fragment_to_play_fragment)
         Toast.makeText(requireContext(), "Show", Toast.LENGTH_SHORT).show()
     }
 
