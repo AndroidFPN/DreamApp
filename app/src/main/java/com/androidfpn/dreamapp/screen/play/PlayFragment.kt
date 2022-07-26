@@ -32,11 +32,12 @@ class PlayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val player: ExoPlayer = ExoPlayer.Builder(requireActivity()).build()
-        binding.exoplayer.player = player
+        binding.videoPlayerView.player = player
 
         // Build the media item.
         // Build the media item.
-        val mediaItem: MediaItem = MediaItem.fromUri(Uri.parse("android.resource://com.androidfpn.dreamapp/raw/sound_1"))
+        val mediaItem: MediaItem =
+            MediaItem.fromUri(Uri.parse("android.resource://com.androidfpn.dreamapp/raw/sound_1"))
 // Set the media item to be played.
 // Set the media item to be played.
         player.setMediaItem(mediaItem)
@@ -45,6 +46,7 @@ class PlayFragment : Fragment() {
         player.prepare()
 // Start the playback.
 // Start the playback.
+
         player.play()
     }
 
