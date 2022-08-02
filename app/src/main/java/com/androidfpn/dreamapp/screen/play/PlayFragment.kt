@@ -2,16 +2,27 @@ package com.androidfpn.dreamapp.screen.play
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.androidfpn.dreamapp.R
 import com.androidfpn.dreamapp.databinding.PlayFragmentBinding
+import com.androidfpn.dreamapp.util.AudioPlayer
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PlayFragment : Fragment() {
+
+    @Inject
+    lateinit var audioPlayer: AudioPlayer
 
     companion object {
         fun newInstance() = PlayFragment()
@@ -31,23 +42,18 @@ class PlayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val player: ExoPlayer = ExoPlayer.Builder(requireActivity()).build()
-        binding.videoPlayerView.player = player
+        binding.videoPlayerView.player = audioPlayer.exoPlayer
+        audioPlayer.audioFile="android.resource://com.androidfpn.dreamapp/raw/sound_1"
+        audioPlayer.startPlayer()
+        val findViewById = requireActivity().findViewById<ImageButton>(R.id.btnTimer)
+//        val exo_play = requireActivity().findViewById<ImageButton>(R.id.exo_play)
+//        exo_play.setOnClickListener {
+//            audioPlayer.startPlayer()
+//        }
+        findViewById.setOnClickListener {
+            Log.d("Neda", "Neda")
+        }
 
-        // Build the media item.
-        // Build the media item.
-        val mediaItem: MediaItem =
-            MediaItem.fromUri(Uri.parse("android.resource://com.androidfpn.dreamapp/raw/sound_1"))
-// Set the media item to be played.
-// Set the media item to be played.
-        player.setMediaItem(mediaItem)
-// Prepare the player.
-// Prepare the player.
-        player.prepare()
-// Start the playback.
-// Start the playback.
-
-        player.play()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
